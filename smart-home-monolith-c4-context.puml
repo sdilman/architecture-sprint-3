@@ -1,0 +1,23 @@
+@startuml
+
+skinparam rectangle {
+    RectangleBackgroundColor #FFFFFF
+}
+
+rectangle "Смарт Хоум Контекст" {
+    rectangle "Смарт Хоум Приложение" as appContainer
+
+    rectangle "Датчик температуры" as probeContainer
+
+    rectangle "Веб интерфейс" as webContainer
+    appContainer -[hidden]-> probeContainer
+
+
+    appContainer ---> probeContainer : "Запрос\n температуры"
+
+    probeContainer ---> appContainer : "Температура\n на датчике"
+
+    appContainer ---> webContainer: "Температура \nв помещении" 
+    webContainer ---> appContainer: "Запрос на включение\n и установку температуры"
+}
+@enduml
