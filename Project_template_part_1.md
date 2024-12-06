@@ -40,7 +40,7 @@
 ### 5. Визуализация контекста системы — диаграмма С4
 
 ```markdown
-[Смарт Хоум Контекст](out/smart-home-monolith-c4-context/smart-home-monolith-c4-context.png)
+![Смарт Хоум Контекст](out/smart-home-monolith-c4-context/smart-home-monolith-c4-context.png)
 ```
 
 # Задание 2. Проектирование микросервисной архитектуры
@@ -62,5 +62,5 @@
 # Задание 3. Разработка ER-диаграммы
 
 ```markdown
-[Смарт Хоум Контекст](out/to-be-c4-code/to-be-c4-code.png)
+![C4-Code](out/to-be-c4-code/to-be-c4-code.png)
 ```
