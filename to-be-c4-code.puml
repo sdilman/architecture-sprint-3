@@ -1,0 +1,83 @@
+@startuml
+entity "Пользователь" as User {
+    * id : UUID
+    * name : String
+    --
+    email : String
+    phone : String
+}
+
+entity "Дом" as Home {
+    * id : UUID
+    * name : String
+    --
+    address : String
+}
+
+entity "Устройство" as Device {
+    * id : UUID
+    * name : String
+    --
+    status : String
+    category_id : UUID
+    type_id : UUID
+    home_id : UUID
+}
+
+entity "Категория устройства" as DeviceCategory {
+    * id : UUID
+    * name : String
+    --
+    description : String
+}
+
+entity "Тип устройства" as DeviceType {
+    * id : UUID
+    * name : String
+    --
+    category_id : UUID
+}
+
+entity "Элемент управления" as ControlElement {
+    * id : UUID
+    * name : String
+    --
+    type_id : UUID
+    device_id : UUID
+}
+
+entity "Тип элемента управления" as ControlElementType {
+    * id : UUID
+    * name : String
+    --
+    description : String
+}
+
+entity "Датчик" as Sensor {
+    * id : UUID
+    * name : String
+    --
+    type_id : UUID
+    value : String
+    device_id : UUID
+}
+
+entity "Тип датчика" as SensorType {
+    * id : UUID
+    * name : String
+    --
+    description : String
+}
+
+Home ||--o{ User : содержит
+Home ||--o{ Device : содержит
+Device ||--|| DeviceCategory : принадлежит
+Device ||--|| DeviceType : имеет_тип
+Device ||--o{ ControlElement : управляется
+Device ||--o{ Sensor : обладает
+DeviceCategory ||--o{ DeviceType : содержит_типы
+ControlElement ||--|| ControlElementType : имеет_тип
+ControlElementType ||--|| DeviceType : совместимо
+Sensor ||--|| SensorType : имеет_тип
+SensorType ||--|| DeviceType : совместимо
+@enduml
